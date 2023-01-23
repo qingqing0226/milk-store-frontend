@@ -1,24 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
 import './App.css';
+import Container from './components/Container';
+import { Milk } from './types/types';
 
 function App() {
+  const [milklist, setMilklist] = useState<Array<Milk>>([]);
+  useEffect(() => {
+    const getData = async () => {
+      const results = await fetch('http://localhost:8080/api/milk', {mode: 'cors', headers: {'Content-Type': 'application/json'}});
+      const data = await results.json();
+      console.log(data);
+      setMilklist(data);
+    }
+
+    getData();
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h2>THE MILK STORE</h2>
       </header>
+      <Container milkList={milklist} setMilklist={setMilklist} />
     </div>
   );
 }
