@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { Dispatch, SetStateAction } from 'react';
+
 interface ISearchBarProps {
     searchkey: string,
-    updateName: (n: any) => void
+    updateName: Dispatch<SetStateAction<string>>
 }
 
 const SearchBar = ({searchkey, updateName}: ISearchBarProps) => {
   return (
-    <input value={searchkey} placeholder='Search' onChange={updateName} />
+    <input value={searchkey} placeholder='Search' onChange={(e: React.ChangeEvent<HTMLInputElement>) => updateName(e.target.value)} />
   )
 }
 
