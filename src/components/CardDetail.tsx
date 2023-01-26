@@ -1,5 +1,8 @@
 import React, { Dispatch, SetStateAction, useState } from 'react';
 import { Milk } from '../types/types';
+import milkImage from './milk.png';
+import './CardDetail.css';
+
 interface ICardDetailProps {
     details: Milk,
     setShowcardDetail: Dispatch<SetStateAction<boolean>>
@@ -24,14 +27,19 @@ const CardDetail = ({details, setShowcardDetail}: ICardDetailProps) => {
 
   return (
     <div className='carddetail-container'>
-        <p onClick={() => setShowcardDetail(false)}><span className='less-than'>&#60;</span>Back</p>
-        <h3>{details.name}</h3>
-        <p>{details.type}</p>
-        <p>{details.storage} liter</p>
-        <input type='range' min={0} max={details.storage} value={liter} step={1} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setLiter(Number(e.target.value))} />
-        <p>select {liter} liter</p>
-        <button type='submit' onClick={handleOrder}>Order</button>
-        {showSuccess && <div>The order is confirmed</div>}
+        <p className='back' onClick={() => setShowcardDetail(false)}><span className='less-than'>&#60;</span> Back</p>
+        <div className='img-details'>
+          <img src={milkImage} className='image' width={150} height={150} />
+          <div className='details'>
+            <h3>{details.name}</h3>
+            <p className='type'>{details.type}</p>
+            <p className='liter'>{details.storage} liter</p>
+            <input type='range' min={0} max={details.storage} value={liter} step={1} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setLiter(Number(e.target.value))} />
+            <p>select {liter} liter</p>
+            <button type='submit' onClick={handleOrder}>Order</button>
+            {showSuccess && <div>The order is confirmed</div>}
+          </div>
+        </div>
     </div>
   )
 }

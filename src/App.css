@@ -25,12 +25,123 @@ main {
   background-color: #FFE1E2;
 }
 
+.main-content {
+  width: 60vw;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
 .search-filter {
   height: 10vh;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.searchbar {
+  height: 1.8rem;
+  width: 15rem;
+  padding: 0.2rem;
+  border:none;
+  border-radius: 6px;
+}
+
+.searchbar:hover{
+  box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+}
+
+.filter-trigger:hover {
+  color: #a39f9f;
+  cursor: pointer;
+}
+
+.filter-container {
+  background-color: white;
+  width: 15vw;
+  height:30vh;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: #6e6a6a;
+  overflow: scroll;
+}
+
+.filter-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+}
+
+.close-btn {
+  border: none;
+  padding: 0.2rem;
+  background: none;
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.filter-title {
+  color:black;
+  margin-bottom: 0.5rem;
+  padding: 0.3rem;
+}
+
+.checkbox-container {
+  padding: 0.5rem;
+}
+
+.checkbox {
+  margin-right: 0.5rems;
 }
 
 .noOfProducts {
+  margin-bottom: 2rem;
+}
 
+.card-container {
+  display: grid;
+  grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 1rem;
+}
+
+.card {
+  background-color: #F6F6F6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 8px;
+}
+.card:hover {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  cursor: pointer;
+}
+.image {
+  margin: 1rem;
+}
+
+.milk-info {
+  background-color: white;
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 1rem;
+}
+
+.milk-type-storage {
+  display: flex;
+  justify-content: space-between;
+}
+
+.milk-type {
+  color: #a39f9f;
+}
+
+.milk-storage{
+  color: #cfca81;
 }
 
 

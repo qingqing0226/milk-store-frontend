@@ -1,5 +1,6 @@
 import React, {useState, useEffect, Dispatch, SetStateAction} from 'react';
 import Popup from 'reactjs-popup';
+import '../App.css';
 
 interface IFilterprops {
   types: string[],
@@ -18,23 +19,33 @@ const Filter = ({types, checkStatus, setCheckStatus}: IFilterprops) => {
     setCheckStatus(checkStatus);
   }
 
+  const offset = {
+    right: 50,
+    top: 50,
+  };
+
   return (
     <>
-    <div onClick={() => setOpen(true)} className='author-name'>filter</div>
+    <div onClick={() => setOpen(true)} className='filter-trigger'>filter</div>
     <Popup
       arrow={false}
       modal nested
       open={open}
       closeOnDocumentClick
       onClose={closePop}
+      offsetX={300}
+      offsetY={10}
     >
-      <div className='filter'>
-        <div><span>Filter</span><button onClick={closePop}>X</button></div>
-        <div>Milk type</div>
+      <div className='filter-container'>
+        <div className='filter-header'>
+          <span className='filter'>Filter</span>
+          <button className='close-btn' onClick={closePop}>X</button>
+        </div>
+        <div className='filter-title'>Milk type</div>
         {types.map((t, k) => 
-          <div key={k}>
-            <input type='checkbox' value={t} id={t} onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e, k)} />
-            <label htmlFor={t} >{t}</label>
+          <div key={k} className='checkbox-container'>
+            <input className='checkbox' type='checkbox' value={t} id={t} onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e, k)} />
+            <label htmlFor={t} > {t}</label>
           </div>
         )}
       </div>

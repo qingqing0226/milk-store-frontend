@@ -18,7 +18,7 @@ const Card = ({milk, setCardDetail, setShowcardDetail}:ICardProps) => {
 
   return (
     <div className='card' onClick={handleClick}>
-        <img src={milkImage} className='image' width={300} height={300} />
+        <img src={milkImage} className='image' width={150} height={150} />
         <div className='milk-info'>
             <p className='milk-name'>{milk.name}</p>
             <div className='milk-type-storage'>

@@ -34,7 +34,7 @@ const Container = () => {
 
 
   useEffect(() => {
-    const filtered = searchkey.length > 0 ? originalData.filter(milk => milk.name.includes(searchkey)) : originalData;
+    const filtered = searchkey.length > 0 ? originalData.filter(milk => milk.name.toLowerCase().includes(searchkey.toLowerCase())) : originalData;
     setMilklist(filtered);
   }, [searchkey]);
 
