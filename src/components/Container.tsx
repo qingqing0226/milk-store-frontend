@@ -12,7 +12,6 @@ const Container = () => {
   const [searchkey, setSearchkey] = useState('');
   const [originalData, setOriginaldata] = useState<Array<Milk>>([]);
   const [originalTypes, setOriginalTypes] = useState<Array<string>>([]);
-  const [checkStatus, setCheckStatus] = useState<Array<boolean>>(new Array(11).fill(false));
   const [showCardDetail, setShowcardDetail] = useState(false);
   const [cardDetail, setCardDetail] = useState<Milk>({} as Milk);
 
@@ -38,22 +37,6 @@ const Container = () => {
     setMilklist(filtered);
   }, [searchkey]);
 
-  
-  useEffect(() => {
-    const selected: string[] = []
-    checkStatus.forEach((value, key) => {
-      if(value) {
-        selected.push(originalTypes[key]);
-      }
-    });
-
-    const milks: Milk[] = [];
-    selected.forEach(t => {
-      const partialList: Milk[] = originalData.filter(milk => milk.type === t);
-      milks.concat(partialList);
-    });
-    setMilklist(milks);
-  }, [checkStatus]);
 
   return (
     <main>
@@ -61,7 +44,7 @@ const Container = () => {
         <div className='main-content'>
           <div className='search-filter'>
             <SearchBar searchkey={searchkey} updateName={setSearchkey} />
-            <Filter types={originalTypes} checkStatus={checkStatus} setCheckStatus={setCheckStatus} />
+            <Filter types={originalTypes} originalData={originalData} setMilklist={setMilklist} />
           </div>
           <p className='noOfProducts'>{milklist.length} products</p>
           <div className='card-container'>{milklist.map(milk => <Card milk={milk} key={milk.id} setCardDetail={setCardDetail} setShowcardDetail={setShowcardDetail} />)}</div> 

@@ -59,13 +59,16 @@ main {
 
 .filter-container {
   background-color: white;
-  width: 15vw;
-  height:30vh;
+  width: 20vw;
+  height:35vh;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   color: #6e6a6a;
   overflow: scroll;
+  top:10rem;
+  right: 2rem;
+  position: fixed;
 }
 
 .filter-header {
@@ -94,6 +97,10 @@ main {
 
 .checkbox {
   margin-right: 0.5rems;
+}
+
+.confirm-btn {
+  margin: 0.2rem;
 }
 
 .noOfProducts {
