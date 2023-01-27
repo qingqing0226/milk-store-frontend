@@ -1,5 +1,6 @@
 # Milk Store
-This is the frontend of the app. Click [here](https://github.com/qingqing0226/milk-store-backend) to go to the backend repo.
+This is the frontend of the app. Click [here](https://github.com/qingqing0226/milk-store-backend) to go to the backend repo.  
+**NOTE**: Make sure to run the **backend** app first before runing the frontend.
 
 ## Background
 
@@ -17,7 +18,7 @@ A small local milk shop needs help desperately. Lately they started getting a lo
 
 ## Technologies and languages
 
-TypeScript, React
+TypeScript, React, HTML, CSS
 
 ## Available Scripts
 
